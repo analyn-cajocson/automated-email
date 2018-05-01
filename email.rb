@@ -4,7 +4,7 @@ class Email
 	attr_reader :recipient
 
 	def self.execute
-		options = { :address              => "smtp.gmail.com",
+		options = { :address            => "smtp.gmail.com",
 	            :port                 => 587,
 	            :domain               => 'gmail.com',
 	            :user_name            => '',
@@ -12,15 +12,15 @@ class Email
 	            :authentication       => 'plain',
 	            :enable_starttls_auto => true  }
 		Mail.defaults do
-	  delivery_method :smtp, options
+	  	delivery_method :smtp, options
 		end
 
 		Mail.deliver do
-		       to []
-		       bcc []
-		     from 'analyncajocson@gmail.com'
+			to []
+		  bcc []
+		  from ''
 		  subject 'BACKPAY'
-		     body File.read('email_template.html')
+		  body File.read('email_template.html')
 		end
 		
 	end
